@@ -1,11 +1,11 @@
 var quiz = [
   {
-    question: "How do you write 'Hello World' in an alert box?",
+    question: "How do you write 'Hello World' in an alert function?",
     answers: [
-      { text: "msg('Hello World')" },
-      { text: "alert('Hello World')" },
-      { text: "prompt('Hello World" },
-      { text: "alertBox('Hello World')" },
+      { pick: "msg('Hello World')" },
+      { pick: "alert('Hello World')" },
+      { pick: "prompt('Hello World" },
+      { pick: "alertBox('Hello World')" },
     ],
     correct: "alert('Hello World')",
   },
@@ -19,30 +19,24 @@ var answerBtns = document.getElementById("answer-buttons");
 
 var button = document.querySelectorAll(".btn");
 
+var startButton = document.getElementById("start-btn");
+
+var startContainer = document.getElementById("start-container");
+
+var startButton;
+
 question.textContent = quiz[0].question;
 
 var indx = 0;
-quiz[0].answers.forEach(answer);
-function testfunc() {
-  console.log("testfunc called " + indx++);
+function questionBlock() {
+  for (var i = 0; i < button.length; i++) {
+    button[i].textContent = quiz[0].answers[indx].pick;
+    indx++;
+  }
 }
-function answer() {
-  var button = document.createElement("button");
-  button.textContent = quiz[0].answers[indx].text;
-  indx++;
+questionBlock();
 
-  button.classList.add("btn");
-  answerBtns.appendChild(button);
-}
-
-// button.addEventListener("click", function (event) {
-//   var element = event.target;
-
-//   if (element.matches(".btn")) {
-//     var checkButton = element.getAttribute("data-status");
-//   }
-
-//   if (checkButton === check) {
-//     element.setAttribute("data-status", "correct");
-//   }
-// });
+startButton.addEventListener("click", function () {
+  questionContainer.style.display = "block";
+  startContainer.style.display = "none";
+});
