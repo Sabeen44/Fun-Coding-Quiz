@@ -1,3 +1,30 @@
-h1 {
-  color: red;
+:root {
+  --primary-color: #cc6600;
+  --secondary-color: #ff9900;
+  --tertiary-color: #aaaaaa;
+  --white-color: #ffffff;
+  --correct-color: #6b8e23;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  width: 60%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.centered {
+  text-align: center;
+}
+
+/* Header */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 25px 0;
 }

@@ -1,7 +1,7 @@
-var questions = [
+var quiz = [
   {
     question: "How do you write 'Hello World' in an alert box?",
-    choices: [
+    answers: [
       "msg('Hello World')",
       "alert('Hello World')",
       "prompt('Hello World",
@@ -12,25 +12,30 @@ var questions = [
 
   {
     question: "Which of the following is not commonly used data types?",
-    choices: ["strings", "booleans", "alerts", "numbers"],
+    answers: ["strings", "booleans", "alerts", "numbers"],
     correct: "alerts",
   },
   {
     quesitons:
       "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answers: ["quotes", "curly brackets", "parentheses", "square brackets"],
     correct: "parentheses",
   },
   {
-    quesitons:
-      "Which built-in method removes the last element from an array and returns that element?",
-    choices: ["last()", "get()", "pop()", "None of the Above"],
-    correct: "pop()",
+    quesitons: "How do you round the number 102.456, to the nearest integer",
+    answers: [
+      "Math.random(102.456)",
+      "Math.rnd(102.456)",
+      "round(102.456)",
+      "None of the above",
+    ],
+    correct: "Math.random(102.456)",
   },
+
   {
     quesitons:
       "Which built-in method returns the calling string value converted to lower case?",
-    choices: [
+    answers: [
       "toLowerCase()",
       "toLower()",
       "changeCase(case)",
@@ -40,14 +45,8 @@ var questions = [
   },
   {
     quesitons:
-      "Which of the following function of Number object returns the number's value",
-    choices: ["toString()", "valueOf()", "toLocaleString()", "toPrecision()"],
+      "Which of the following function of Number object returns the number's value?",
+    answers: ["toString()", "valueOf()", "toLocaleString()", "toPrecision()"],
     correct: "valueOf()",
-  },
-  {
-    quesitons:
-      "Which of the following function of Array object joins all elements of an array into a string?",
-    choices: ["concat()", "join()", "pop()", "map()"],
-    correct: "join()",
   },
 ];
