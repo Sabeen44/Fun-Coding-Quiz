@@ -70,8 +70,11 @@ var resultsContainer = document.getElementById("results-container");
 
 var restartButton = document.getElementById("restart-btn");
 
+var highScoreBoard = document.querySelector(".score-board");
+
 var qIndex = 0;
 var timeleft;
+var highScore = 0;
 
 function questionBlock() {
   question.textContent = quiz[qIndex].question;
@@ -129,18 +132,14 @@ button.forEach((xbutton) => {
   });
 });
 
-highScore = localStorage.getItem("highScore") || 0;
-initials = localStorage.getItem("initials");
-
 function EndQuiz() {
   //questionContainer.style.display = "none";
   nextButton.style.display = "none";
   resultsContainer.style.display = "block";
   yourScore.textContent = "Your Score: " + score;
   if (score > highScore) {
-    localStorage.setItem("highScore", score);
-    localStorage.setItem("initials", initials);
-    document.getElementById("highscore").innerHTML = score;
+    highScore = score;
+    highScoreBoard.innerHTML = "Highscore " + highScore;
   }
 }
 
@@ -151,6 +150,7 @@ function timeRemaining() {
 
     if (timeleft < 0) {
       clearInterval(timeInterval);
+
       //timer.textContent = "Time's up! Click 'Restart' to try again ";
 
       EndQuiz();
@@ -169,3 +169,9 @@ restartButton.addEventListener("click", function () {
 
   //questionBlock();
 });
+
+highScore = localStorage.getItem("highscore") || 0;
+initials = localStorage.getItem("initials");
+
+localStorage.setItem("high score", highScore);
+localStorage.setItem("initials", initials);
