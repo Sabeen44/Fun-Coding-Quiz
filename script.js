@@ -83,9 +83,6 @@ function questionBlock() {
     button[i].disabled = false;
     button[i].textContent = quiz[qIndex].answers[indx];
     indx++;
-    // if (button[i].textContent === quiz[qIndex].answers.correct) {
-    //   button[i] === quiz[qIndex].answers.correct;
-    // }
   }
 }
 
