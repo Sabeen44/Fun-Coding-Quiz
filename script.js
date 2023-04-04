@@ -28,6 +28,7 @@ var startButton;
 var checkCorrect = document.getElementById("check-correct");
 var checkWrong = document.getElementById("check-wrong");
 var nextButton = document.getElementById("next-btn");
+var timer = document.getElementById("timer");
 
 question.textContent = quiz[0].question;
 
@@ -46,6 +47,7 @@ questionBlock();
 startButton.addEventListener("click", function () {
   questionContainer.style.display = "block";
   startContainer.style.display = "none";
+  timeRemaining();
 });
 
 button.forEach((button) => {
@@ -59,3 +61,19 @@ button.forEach((button) => {
     nextButton.style.display = "block";
   });
 });
+
+//nextButton.addEventListener("click",function next question)
+
+function timeRemaining() {
+  var timeleft = 60;
+
+  var timeInterval = setInterval(function () {
+    timer.textContent = timeleft + " seconds remaining";
+    timeleft--;
+
+    if (timeleft === -1) {
+      clearInterval(timeInterval);
+      timer.textContent = "Time's up! Click 'Start Quiz' to try again ";
+    }
+  }, 1000);
+}
