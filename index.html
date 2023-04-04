@@ -15,6 +15,7 @@
         You have 60 seconds to answer 5 questions. Each incorrect answer will
         deduct 10 seconds. Click start to begin.
       </p>
+
       <div>
         <button id="start-btn" class="start-btn">Start Quiz</button>
       </div>
@@ -33,15 +34,32 @@
 </section>
         
 <div> 
-  <button class="hide" id="next-btn">Next</button>
+  <button id="next-btn" class="hide" id="next-btn">Next</button>
 </div>
 
 <div class="scores">
   <a id="highscores-link">View high scores</a>
 </div>
 <div id="timer" class="timer">Time: 60</div>
+
+  <section id="results-container" class="hide">
+  
+    <h1 class="score">Your Score:</h1>
+    <label id="initials-label"
+          >Enter your initials to save the score:</label
+        >
+        <input
+          type="text"
+          id="initials-field"
+          maxlength="3"
+          placeholder="Enter your initials"
+        />
+    <h1 class="score-board">High Score:</h1>
+    <div id="highscore" class="highscore-list"></div>
     
-      
+    <button id="restart-btn">Restart</button>
+  </div>
+</section>
 <script src ="questions.js"></script>
     <script src="script.js"></script>
   </body>
