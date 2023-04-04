@@ -12,16 +12,22 @@ body {
   width: 60%;
   margin: 0 auto;
 }
-
-a {
-  text-decoration: none;
+h1 {
+  color: rgb(104, 134, 189);
+  font-size: 36px;
+  font-weight: bold;
 }
 
-.centered {
-  text-align: center;
+h2,
+p {
+  color: rgb(166, 91, 127);
+  font-size: 20px;
+  font-weight: bold;
 }
 
-/* Header */
+#s #start-container {
+}
+
 header {
   display: flex;
   flex-wrap: wrap;
@@ -31,4 +37,20 @@ header {
 
 .hide {
   display: none;
+}
+
+.btn {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+}
+
+#question-container {
+  padding: 50px;
 }

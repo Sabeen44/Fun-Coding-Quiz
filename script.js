@@ -6,10 +6,6 @@ var quiz = [
       "alert('Hello World')",
       "prompt('Hello World",
       "alertBox('Hello World')",
-      // { pick: "msg('Hello World')" },
-      // { pick: "alert('Hello World')" },
-      // { pick: "prompt('Hello World" },
-      // { pick: "alertBox('Hello World')" },
     ],
     correct: "alert('Hello World')",
   },
@@ -18,6 +14,34 @@ var quiz = [
     question: "Which of the following is not commonly used data types?",
     answers: ["strings", "booleans", "alerts", "numbers"],
     correct: "alerts",
+  },
+  {
+    question:
+      "The condition in an if / else statement is enclosed within ____.",
+    answers: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    correct: "parentheses",
+  },
+  {
+    question: "How do you round the number 102.456, to the nearest integer",
+    answers: [
+      "Math.random(102.456)",
+      "Math.rnd(102.456)",
+      "round(102.456)",
+      "None of the above",
+    ],
+    correct: "Math.random(102.456)",
+  },
+
+  {
+    question:
+      "Which built-in method returns the calling string value converted to lower case?",
+    answers: [
+      "toLowerCase()",
+      "toLower()",
+      "changeCase(case)",
+      "None of the Above",
+    ],
+    correct: "toLowerCase()",
   },
 ];
 
@@ -47,6 +71,7 @@ var resultsContainer = document.getElementById("results-container");
 var restartButton = document.getElementById("restart-btn");
 
 var qIndex = 0;
+var timeleft;
 
 function questionBlock() {
   question.textContent = quiz[qIndex].question;
@@ -60,7 +85,6 @@ function questionBlock() {
     // }
   }
 }
-questionBlock();
 
 nextButton.addEventListener("click", function () {
   qIndex++;
@@ -70,11 +94,12 @@ nextButton.addEventListener("click", function () {
 startButton.addEventListener("click", function () {
   questionContainer.style.display = "block";
   startContainer.style.display = "none";
+  questionBlock();
+  score = 0;
+  timeleft = 60;
   timeRemaining();
 });
 
-score = 0;
-var timeleft = 30;
 button.forEach((xbutton) => {
   xbutton.addEventListener("click", (event) => {
     var correctAnswer = quiz[qIndex].correct;
@@ -104,12 +129,21 @@ button.forEach((xbutton) => {
   });
 });
 
+highScore = localStorage.getItem("highScore") || 0;
+initials = localStorage.getItem("initials");
+
 function EndQuiz() {
   //questionContainer.style.display = "none";
   nextButton.style.display = "none";
   resultsContainer.style.display = "block";
   yourScore.textContent = "Your Score: " + score;
+  if (score > highScore) {
+    localStorage.setItem("highScore", score);
+    localStorage.setItem("initials", initials);
+    document.getElementById("highscore").innerHTML = score;
+  }
 }
+
 function timeRemaining() {
   var timeInterval = setInterval(function () {
     timer.textContent = timeleft + " seconds remaining";
@@ -117,13 +151,21 @@ function timeRemaining() {
 
     if (timeleft < 0) {
       clearInterval(timeInterval);
-      timer.textContent = "Time's up! Click 'Restart' to try again ";
+      //timer.textContent = "Time's up! Click 'Restart' to try again ";
+
       EndQuiz();
     }
   }, 1000);
 }
 
 restartButton.addEventListener("click", function () {
-  var qIndex = 0;
-  questionContainer.style.display = "block";
+  qIndex = 0;
+  questionContainer.style.display = "none";
+  resultsContainer.style.display = "none";
+  checkWrong.style.display = "none";
+  checkCorrect.style.display = "none";
+  startContainer.style.display = "block";
+  document.getElementById("initials").value = "";
+
+  //questionBlock();
 });
