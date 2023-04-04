@@ -25,6 +25,10 @@ var startContainer = document.getElementById("start-container");
 
 var startButton;
 
+var checkCorrect = document.getElementById("check-correct");
+var checkWrong = document.getElementById("check-wrong");
+var nextButton = document.getElementById("next-btn");
+
 question.textContent = quiz[0].question;
 
 var indx = 0;
@@ -32,6 +36,9 @@ function questionBlock() {
   for (var i = 0; i < button.length; i++) {
     button[i].textContent = quiz[0].answers[indx].pick;
     indx++;
+    if (button[i].textContent === quiz[0].answers.correct) {
+      button[i] === quiz[0].answers.correct;
+    }
   }
 }
 questionBlock();
@@ -39,4 +46,16 @@ questionBlock();
 startButton.addEventListener("click", function () {
   questionContainer.style.display = "block";
   startContainer.style.display = "none";
+});
+
+button.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    if (event.target.textContent === "alert('Hello World')") {
+      //Work on this later
+      checkCorrect.style.display = "block";
+    } else {
+      checkWrong.style.display = "block";
+    }
+    nextButton.style.display = "block";
+  });
 });
